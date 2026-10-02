@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملائكة النورانية</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- الهيدر وتنقل الموقع -->
+    <header class="navbar">
+        <div class="logo">✦ الملائكة النورانية</div>
+        <nav>
+            <a href="#home" class="nav-link active" onclick="switchTab('home')">الرئيسية</a>
+            <a href="#quran" class="nav-link" onclick="switchTab('quran')">المصحف</a>
+            <a href="#azkar" class="nav-link" onclick="switchTab('azkar')">الأذكار</a>
+        </nav>
+        <div class="auth-buttons">
+            <button class="btn-login" id="authBtn" onclick="openAuthModal()">تسجيل الدخول</button>
+            <span id="userInfo" class="user-welcome" style="display: none;"></span>
+        </div>
+    </header>
+
+    <!-- 1. القسم الرئيسي (الواجهة) -->
+    <main id="tab-home" class="tab-content active-tab">
+        <section class="hero-section">
+            <div class="date-badge" id="current-date">الجمعة، 2 أكتوبر 2026 • 1 ربيع الآخر 1448</div>
+            <h1 class="greeting-title" id="userGreeting">السلام عليك،<br>يا نور.</h1>
+            <p class="hero-subtext">خذ من يومك لحظة، واترك الباقي على الله.</p>
+
+            <div class="mosque-illustration">
+                <div class="minaret left"></div>
+                <div class="dome"></div>
+                <div class="minaret right"></div>
+            </div>
+        </section>
+
+        <!-- قسم مواقيت الصلاة الحقيقية لمدينة القاهرة -->
+        <section class="prayer-section">
+            <div class="section-header">
+                <h2>على موعد مع السكينة</h2>
+                <p>مواقيت القاهرة، مصر — آخر تحديث: <span id="last-update">اليوم</span></p>
+            </div>
+
+            <div class="prayer-grid">
+                <div class="prayer-card" id="card-fajr">
+                    <span class="p-name">الفجر</span>
+                    <span class="p-time" id="fajr-time">05:22</span>
+                </div>
+                <div class="prayer-card" id="card-sunrise">
+                    <span class="p-name">الشروق</span>
+                    <span class="p-time" id="sunrise-time">06:49</span>
+                </div>
+                <div class="prayer-card active-prayer" id="card-dhuhr">
+                    <span class="p-name">الظهر</span>
+                    <span class="p-time" id="dhuhr-time">12:44</span>
+                    <span class="p-tag">القادم</span>
+                </div>
+                <div class="prayer-card" id="card-asr">
+                    <span class="p-name">العصر</span>
+                    <span class="p-time" id="asr-time">16:07</span>
+                </div>
+                <div class="prayer-card" id="card-maghrib">
+                    <span class="p-name">المغرب</span>
+                    <span class="p-time" id="maghrib-time">18:39</span>
+                </div>
+                <div class="prayer-card" id="card-isha">
+                    <span class="p-name">العشاء</span>
+                    <span class="p-time" id="isha-time">19:56</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- آية اليوم وورد الذكر -->
+        <section class="daily-verse-section">
+            <div class="verse-box">
+                <div class="verse-icon">﴿ ۞ ﴾</div>
+                <p class="quran-verse">"وَمَن يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ ۚ إِنَّ اللَّهَ بَالِغُ أَمْرِهِ"</p>
+                <button class="btn-text" onclick="switchTab('quran')">اقرأ الآية كاملة ←</button>
+            </div>
+
+            <div class="azkar-banner">
+                <h3>وردك اليومي</h3>
+                <h2 class="azkar-main-title">اذكر الله، تطمئن القلوب.</h2>
+                <p class="azkar-quote" id="dailyZikr">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، سُبْحَانَ اللَّهِ الْعَظِيمِ</p>
+                <div class="azkar-controls">
+                    <button class="btn-secondary" onclick="nextZikr()">ذكر جديد ↻</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 2. قسم المصحف الشريف -->
+    <main id="tab-quran" class="tab-content">
+        <section class="quran-header">
+            <h2>اقرأ بتدبر وطمأنينة</h2>
+            <div class="surah-selector" id="surahButtons">
+                <!-- أزرار السور تتولد بواسطة JS -->
+            </div>
+        </section>
+
+        <section class="quran-reader-container">
+            <div class="surah-title" id="surahTitle">سورة الفاتحة</div>
+            <div class="basmala">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+            <div class="surah-text" id="surahContent">
+                <!-- نص السورة الكاملا يُجلب تلقائياً -->
+            </div>
+        </section>
+    </main>
+
+    <!-- 3. قسم الأذكار -->
+    <main id="tab-azkar" class="tab-content">
+        <section class="azkar-header">
+            <h2>أذكارك في كل وقت</h2>
+        </section>
+        <section class="azkar-list" id="azkarContainer">
+            <!-- قائمة الأذكار بجودة وتحسينات تتولد بـ JS -->
+        </section>
+    </main>
+
+    <!-- نافذة تسجيل الدخول / إنشاء حساب -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeAuthModal()">&times;</span>
+            <h3 id="modalTitle">تسجيل الدخول</h3>
+            <form id="authForm" onsubmit="handleAuth(event)">
+                <input type="text" id="username" placeholder="اسم المستخدم" required>
+                <input type="password" id="password" placeholder="كلمة المرور" required>
+                <button type="submit" class="btn-submit" id="submitBtn">دخول</button>
+            </form>
+            <p class="modal-toggle">
+                <span id="toggleText">ليس لديك حساب؟</span>
+                <a href="#" onclick="toggleAuthMode()" id="toggleLink">إنشاء حساب جديد</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,313 @@
+:root {
+    --bg-color: #f6f8f6;
+    --card-bg: #ffffff;
+    --text-primary: #2d3748;
+    --text-muted: #718096;
+    --accent-green: #1f5042;
+    --accent-light: #e8f3ef;
+    --gold: #d4af37;
+    --border-color: #e2e8f0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    direction: rtl;
+}
+
+/* النافبار */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent-green);
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    padding-bottom: 5px;
+}
+
+nav a.active {
+    color: var(--accent-green);
+    border-bottom: 2px solid var(--accent-green);
+}
+
+.btn-login {
+    background-color: #2b2d42;
+    color: #fff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* التبويبات */
+.tab-content {
+    display: none;
+    padding: 2rem 5%;
+}
+
+.active-tab {
+    display: block;
+}
+
+/* هيرو الهيدر */
+.hero-section {
+    text-align: center;
+    padding: 3rem 1rem 1rem;
+    position: relative;
+}
+
+.date-badge {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.greeting-title {
+    font-family: 'Amiri', serif;
+    font-size: 3.2rem;
+    color: var(--accent-green);
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+}
+
+.hero-subtext {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* رسم المساجد */
+.mosque-illustration {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 2rem;
+    height: 120px;
+}
+
+.dome {
+    width: 130px;
+    height: 65px;
+    background-color: var(--accent-green);
+    border-radius: 130px 130px 0 0;
+}
+
+.minaret {
+    width: 18px;
+    background-color: var(--accent-green);
+    margin: 0 40px;
+}
+.minaret.left { height: 100px; }
+.minaret.right { height: 120px; }
+
+/* قسم الصلاة */
+.prayer-section {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+    font-family: 'Amiri', serif;
+    color: var(--accent-green);
+    font-size: 1.8rem;
+}
+
+.prayer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 15px;
+}
+
+.prayer-card {
+    background: var(--bg-color);
+    padding: 1.2rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+
+.prayer-card.active-prayer {
+    border: 2px solid var(--gold);
+    background: #fffdf5;
+}
+
+.p-name { display: block; color: var(--text-muted); font-size: 0.9rem; }
+.p-time { display: block; font-size: 1.4rem; font-weight: 700; color: var(--accent-green); margin-top: 5px; }
+.p-tag {
+    position: absolute;
+    top: -10px;
+    right: 50%;
+    transform: translateX(50%);
+    background: var(--gold);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+/* آية والورد */
+.daily-verse-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.verse-box {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.quran-verse {
+    font-family: 'Amiri', serif;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    color: var(--accent-green);
+}
+
+.azkar-banner {
+    background: var(--accent-green);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.azkar-main-title { font-family: 'Amiri', serif; font-size: 1.8rem; margin: 10px 0; }
+.azkar-quote { font-size: 1.2rem; margin-bottom: 1.5rem; opacity: 0.9; }
+
+/* كروت المصحف والأذكار */
+.surah-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 1.5rem 0;
+}
+
+.surah-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.surah-btn.active {
+    background: var(--accent-green);
+    color: white;
+}
+
+.quran-reader-container {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 2.2;
+}
+
+.surah-title {
+    font-family: 'Amiri', serif;
+    font-size: 2.2rem;
+    color: var(--accent-green);
+}
+
+.basmala {
+    font-family: 'Amiri', serif;
+    font-size: 1.4rem;
+    margin: 1.5rem 0;
+    color: var(--gold);
+}
+
+.surah-text {
+    font-family: 'Amiri', serif;
+    font-size: 1.6rem;
+    text-align: justify;
+    text-align-last: center;
+}
+
+.azkar-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 320px;
+    position: relative;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+.btn-submit {
+    width: 100%;
+    background: var(--accent-green);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.close-btn {
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
